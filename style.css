@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+:root{
+  --dark-blue: #363f5f;
+  --secondary-text-color: #969cb3;
+  --primary-color: #1D5E42;
+  --secondary-color: #02AB62;
+  --income-text: #12a454;
+  --red-text: #e92929;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 93.75%;
+}
+
+body{
+  background: #e5e5e5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  width: min(90vw, 800px);
+  margin: auto;
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+h2{
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+
+  color: var(--dark-blue);
+  font-weight: normal;
+}
+
+header{
+  background: var(--primary-color);
+  padding: 2rem 0 12rem;
+
+  text-align: center;
+}
+
+header #logo{
+  color: #fff;
+  font-weight: 400;
+}
+
+header #logo span{
+  color: var(--secondary-color);
+}
+
+#balance{
+  margin-top: -6rem;
+}
+
+#balance h2{
+  color: #fff;
+}
+
+.card{
+  background: #fff;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+
+  border-radius: 0.5rem;
+
+  color: var(--dark-blue);
+}
+
+.card h3{
+  font-weight: normal;
+  font-size: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card p{
+  font-size: 2rem;
+  line-height: 3rem;
+
+  margin-top: 1rem;
+}
+
+.card.total.positive{
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.card.total.negative{
+  background: #e92929;
+  color: #fff;
+}
+
+a{
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.button.new{
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+#transaction .table{
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#data-table{
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: var(--secondary-text-color);
+}
+
+#data-table th{
+  background: #fff;
+  font-weight: normal;
+  text-align: left;
+  padding: 1rem 2rem;
+}
+
+#data-table td{
+  background: #fff;
+  padding: 1rem 2rem;
+}
+
+#data-table tbody tr{
+  opacity: 0.8;
+}
+
+#data-table tbody tr:hover{
+  opacity: 1;
+}
+
+#data-table thead th:first-child, 
+#data-table tbody td:first-child{
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+#data-table thead th:last-child, 
+#data-table tbody td:last-child{
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+#data-table tbody tr img{
+  cursor: pointer;
+}
+
+td.description{
+  color: var(--dark-blue);
+}
+
+td.income{
+  color: var(--income-text);
+}
+
+td.expense{
+  color: var(--red-text);
+}
+
+#msg {
+  width: 100%;
+  padding: 1rem;
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+.modal-overlay{
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal{
+  background: #f0f2f5;
+
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+
+  border-radius: 0.4rem;
+}
+
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+
+  border-bottom: 1px solid #969cb338;
+
+  color: var(--dark-blue)
+}
+
+.modal-header h2{
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.modal-header span{
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+#form{
+  padding: 1rem 2rem;
+  max-width: 500px;
+}
+
+#form .input-group{
+  margin-top: 0.8rem;
+}
+
+#form input{
+  border: none;
+  border-radius: 0.5rem;
+
+  padding: 0.8rem;
+  width: 100%;
+}
+
+#form .input-group small{
+  opacity: 0.4;
+}
+
+#form .input-group.actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 1.5rem;
+}
+
+#form .input-group.actions button{
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+
+  cursor: pointer;
+}
+
+#form .input-group.actions button[type="submit"]{
+  background: var(--primary-color);
+  color: #fff;
+}
+
+#form .input-group.actions button.cancel{
+  background: var(--red-text);
+  color: #fff;
+}
+
+footer{
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--dark-blue);
+  opacity: 0.6;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (min-width: 800px){
+  html{
+    font-size: 87.5%;
+  }
+
+  #balance{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

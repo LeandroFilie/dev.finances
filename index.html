@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./assets/favicon.png" />
+  <title>dev.finance$</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1 id="logo">dev<span>.</span>finance<span>$</span></h1>
+  </header>
+
+  <main class="container">
+    <section id="balance">
+      <h2 class="sr-only">Balanço</h2>
+      <div class="card">
+        <h3>
+          <span>Entradas</span>
+          <img src="./assets/income.svg" alt="Entradas">
+        </h3>
+        <p id="valueIncome">R$ 0,00</p>
+      </div>
+
+      <div class="card">
+        <h3>
+          <span>Saídas</span>
+          <img src="./assets/expense.svg" alt="Entradas">
+        </h3>
+        <p id="valueExpense">R$ 0,00</p>
+      </div>
+
+      <div class="card total">
+        <h3>
+          <span>Total</span>
+          <img src="./assets/total.svg" alt="Entradas">
+        </h3>
+        <p id="valueTotal">R$ 0,00</p>
+      </div>
+
+    </section>
+
+    <section id="transaction">
+      <h2 class="sr-only">Transações</h2>
+
+      <a href="#" class="button new" onclick="toggleModal()">+ Nova Transação</a>
+      <div class="table">
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+  
+          </tbody>
+        </table>
+      </div>
+
+      <div id="msg"></div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Nova Transação</h2>
+        <span onclick="toggleModal()">x</span>
+      </div>
+      <div id="form">
+        
+        <form onsubmit="submitForm(event)">
+          <div class="input-group">
+            <label class="sr-only" for="description">Descrição</label>
+            <input type="text" id="description" name="description" placeholder="Descrição" required />
+          </div>
+
+          <div class="input-group">
+            <label class="sr-only" for="amount">Valor</label>
+            <input type="number" id="amount" name="amount" step="0.01" placeholder="0,00" required/>
+            <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
+          </div>
+
+          <div class="input-group">
+            <label class="sr-only" for="amount">Data</label>
+            <input type="date" id="date" name="date" step="0.01" required/>
+          </div>
+
+          <div class="input-group actions">
+            <button type="button" class="cancel" onclick="toggleModal()">Cancelar</button>
+            <button type="submit">Salvar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
