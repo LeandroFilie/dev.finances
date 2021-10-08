@@ -48,8 +48,7 @@
     <section id="transaction">
       <h2 class="sr-only">Transações</h2>
       <div class="add-transactions">
-        <button class="new income" onclick="toggleModalIncome()">+ Adicionar Entrada</button>
-        <button class="new expense" onclick="toggleModalExpense()">+ Adicionar Saída</button>
+        <button class="new" onclick="toggleModal()">+ Adicionar Transação</button>
       </div>
 
       <div class="table">
@@ -73,66 +72,50 @@
 
   </main>
 
-  <div class="modal-overlay" id="modalIncome">
+  <div class="modal-overlay" id="modal">
     <div class="modal">
       <div class="modal-header">
-        <h2>Nova Entrada</h2>
-        <span onclick="toggleModalIncome()">x</span>
+        <h2>Nova Transação</h2>
+        <span onclick="toggleModal()">
+          <img src="./assets/x.svg" alt="Close" />
+        </span>
       </div>
       <div id="form">
         
-        <form onsubmit="submitForm(event, 'Income')">
+        <form onsubmit="submitForm(event)">
+
+            <div class="input-group-radio">
+              <label class="input-type-transaction">
+                <input type="radio" name="typeTransaction" value="income" required/>
+                <span>Entrada</span>
+              </label>
+  
+              <label class="input-type-transaction expense">
+                <input type="radio" name="typeTransaction" value="expense" />
+                <span>Saída</span>
+              </label>
+            </div>   
+
           <div class="input-group">
+            <img src="./assets/edit.svg" alt="Descrição" />
             <label class="sr-only" for="descriptionIncome">Descrição</label>
-            <input type="text" id="descriptionIncome" name="description" placeholder="Descrição" required />
+            <input type="text" id="description" name="description" placeholder="Descrição" autocomplete='off' required />
           </div>
 
           <div class="input-group">
+            <img src="./assets/dollar-sign.svg" alt="Valor" />
             <label class="sr-only" for="amountIncome">Valor</label>
-            <input type="number" id="amountIncome" name="amount" step="0.01" placeholder="0,00" required />
+            <input type="number" id="amount" name="amount" step="0.01" placeholder="0,00" autocomplete='off' required />
           </div>
 
           <div class="input-group">
+            <img src="./assets/calendar.svg" alt="Date" />
             <label class="sr-only" for="dateIncome">Data</label>
-            <input type="date" id="dateIncome" name="date" step="0.01" required/>
+            <input type="date" id="date" name="data" required/>
           </div>
 
           <div class="input-group actions">
-            <button type="button" class="cancel" onclick="toggleModalIncome()">Cancelar</button>
-            <button type="submit">Salvar</button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modalExpense">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>Nova Saída</h2>
-        <span onclick="toggleModalExpense()">x</span>
-      </div>
-      <div id="form">
-        
-        <form onsubmit="submitForm(event, 'Expense')">
-          <div class="input-group">
-            <label class="sr-only" for="descriptionExpense">Descrição</label>
-            <input type="text" id="descriptionExpense" name="description" placeholder="Descrição" required />
-          </div>
-
-          <div class="input-group">
-            <label class="sr-only" for="amountExpense">Valor</label>
-            <input type="text" id="amountExpense" name="amount" step="0.01" placeholder="0,00" required/>
-          </div>
-
-          <div class="input-group">
-            <label class="sr-only" for="dateExpense">Data</label>
-            <input type="date" id="dateExpense" name="date" step="0.01" required/>
-          </div>
-
-          <div class="input-group actions">
-            <button type="button" class="cancel" onclick="toggleModalExpense()">Cancelar</button>
+            <button type="button" class="cancel" onclick="toggleModal()">Cancelar</button>
             <button type="submit">Salvar</button>
           </div>
 

@@ -1,14 +1,11 @@
-function toggleModalIncome() {
-  const modal = document.getElementById('modalIncome');
+function toggleModal() {
+  const modal = document.getElementById('modal');
+
+  document.querySelector('form').reset()
 
   modal.classList.toggle('active');
 }
 
-function toggleModalExpense() {
-  const modal = document.getElementById('modalExpense');
-
-  modal.classList.toggle('active');
-}
 
 function getTransactions(){
   return JSON.parse(localStorage.getItem("transactions")) || [] 
@@ -31,7 +28,6 @@ function buildHTMLTransaction(transaction, index) {
 }
 
 function addTransaction(transaction, index) {
-  console.log(transaction);
   const tbody = document.querySelector('#data-table tbody');
   const item = document.createElement('tr')
   item.innerHTML = buildHTMLTransaction(transaction, index);
@@ -76,10 +72,10 @@ function formatValues(amount, date){
   
 }
 
-function clearFields(typeTransaction) {
-  document.getElementById(`description${typeTransaction}`).value = '';
-  document.getElementById(`amount${typeTransaction}`).value = '';
-  document.getElementById(`date${typeTransaction}`).value = '';
+function clearFields() {
+  document.getElementById('description').value = '';
+  document.getElementById('amount').value = '';
+  document.getElementById('date').value = '';
 }
 
 function newTransaction(transaction){
@@ -90,22 +86,19 @@ function newTransaction(transaction){
 
   reload(transactions);
 
-  clearFields(transaction.typeTransaction);
+  clearFields();
 
-  document.getElementById('modalIncome').classList.remove('active')
-  document.getElementById('modalExpense').classList.remove('active')
+  toggleModal();
 }
 
-function submitForm(event, typeTransaction) {
-  console.log(typeTransaction);
+function submitForm(event) {
   event.preventDefault();
-  const description = document.getElementById(`description${typeTransaction}`).value;
-  let amount = Number(document.getElementById(`amount${typeTransaction}`).value);
-  const date = document.getElementById(`date${typeTransaction}`).value;
+  const description = document.getElementById('description').value;
+  let amount = Number(document.getElementById('amount').value);
+  const date = document.getElementById('date').value;
+  const typeTransaction = document.querySelector('[name="typeTransaction"]:checked').value;
 
-  typeTransaction === 'Expense' ? amount = -Math.abs(amount) : '';
-
-  console.log(amount);
+  typeTransaction === 'expense' ? amount = -Math.abs(amount) : '';
 
   const values = {
     ...formatValues(amount, date),
@@ -192,26 +185,3 @@ function updateBalance(transactions) {
 }
 
 init();
-
-/* function mask(elemento) { 
-  var valor = elemento.value;
-
-  valor = valor + '';
-  valor = parseInt(valor.replace(/[\D]+/g, ''));
-  valor = valor + '';
-  valor = valor.replace(/([0-9]{2})$/g, ",$1");
-
-  if (valor.length > 6) {
-      valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-  }
-
-  elemento.value = valor;
-  if(valor == 'NaN') elemento.value = '';
-} */
-
-/* let elemento = document.getElementById('amountExpense')
-
-elemento.addEventListener('keyup',function() {
-  
-
-}) */
