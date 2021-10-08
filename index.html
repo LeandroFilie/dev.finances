@@ -37,7 +37,8 @@
       <div class="card total">
         <h3>
           <span>Total</span>
-          <img src="./assets/total.svg" alt="Entradas">
+          <!-- <img src="./assets/total.svg" alt="Entradas"> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" heigth="24px" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
         </h3>
         <p id="valueTotal">R$ 0,00</p>
       </div>
@@ -46,8 +47,11 @@
 
     <section id="transaction">
       <h2 class="sr-only">Transações</h2>
+      <div class="add-transactions">
+        <button class="new income" onclick="toggleModalIncome()">+ Adicionar Entrada</button>
+        <button class="new expense" onclick="toggleModalExpense()">+ Adicionar Saída</button>
+      </div>
 
-      <a href="#" class="button new" onclick="toggleModal()">+ Nova Transação</a>
       <div class="table">
         <table id="data-table">
           <thead>
@@ -69,33 +73,66 @@
 
   </main>
 
-  <div class="modal-overlay" id="modal">
+  <div class="modal-overlay" id="modalIncome">
     <div class="modal">
       <div class="modal-header">
-        <h2>Nova Transação</h2>
-        <span onclick="toggleModal()">x</span>
+        <h2>Nova Entrada</h2>
+        <span onclick="toggleModalIncome()">x</span>
       </div>
       <div id="form">
         
-        <form onsubmit="submitForm(event)">
+        <form onsubmit="submitForm(event, 'Income')">
           <div class="input-group">
-            <label class="sr-only" for="description">Descrição</label>
-            <input type="text" id="description" name="description" placeholder="Descrição" required />
+            <label class="sr-only" for="descriptionIncome">Descrição</label>
+            <input type="text" id="descriptionIncome" name="description" placeholder="Descrição" required />
           </div>
 
           <div class="input-group">
-            <label class="sr-only" for="amount">Valor</label>
-            <input type="number" id="amount" name="amount" step="0.01" placeholder="0,00" required/>
-            <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
+            <label class="sr-only" for="amountIncome">Valor</label>
+            <input type="number" id="amountIncome" name="amount" step="0.01" placeholder="0,00" required />
           </div>
 
           <div class="input-group">
-            <label class="sr-only" for="amount">Data</label>
-            <input type="date" id="date" name="date" step="0.01" required/>
+            <label class="sr-only" for="dateIncome">Data</label>
+            <input type="date" id="dateIncome" name="date" step="0.01" required/>
           </div>
 
           <div class="input-group actions">
-            <button type="button" class="cancel" onclick="toggleModal()">Cancelar</button>
+            <button type="button" class="cancel" onclick="toggleModalIncome()">Cancelar</button>
+            <button type="submit">Salvar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalExpense">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Nova Saída</h2>
+        <span onclick="toggleModalExpense()">x</span>
+      </div>
+      <div id="form">
+        
+        <form onsubmit="submitForm(event, 'Expense')">
+          <div class="input-group">
+            <label class="sr-only" for="descriptionExpense">Descrição</label>
+            <input type="text" id="descriptionExpense" name="description" placeholder="Descrição" required />
+          </div>
+
+          <div class="input-group">
+            <label class="sr-only" for="amountExpense">Valor</label>
+            <input type="text" id="amountExpense" name="amount" step="0.01" placeholder="0,00" required/>
+          </div>
+
+          <div class="input-group">
+            <label class="sr-only" for="dateExpense">Data</label>
+            <input type="date" id="dateExpense" name="date" step="0.01" required/>
+          </div>
+
+          <div class="input-group actions">
+            <button type="button" class="cancel" onclick="toggleModalExpense()">Cancelar</button>
             <button type="submit">Salvar</button>
           </div>
 

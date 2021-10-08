@@ -1,5 +1,11 @@
-function toggleModal() {
-  const modal = document.getElementById('modal');
+function toggleModalIncome() {
+  const modal = document.getElementById('modalIncome');
+
+  modal.classList.toggle('active');
+}
+
+function toggleModalExpense() {
+  const modal = document.getElementById('modalExpense');
 
   modal.classList.toggle('active');
 }
@@ -70,10 +76,10 @@ function formatValues(amount, date){
   
 }
 
-function clearFields() {
-  document.getElementById('description').value = '';
-  document.getElementById('amount').value = '';
-  document.getElementById('date').value = '';
+function clearFields(typeTransaction) {
+  document.getElementById(`description${typeTransaction}`).value = '';
+  document.getElementById(`amount${typeTransaction}`).value = '';
+  document.getElementById(`date${typeTransaction}`).value = '';
 }
 
 function newTransaction(transaction){
@@ -84,20 +90,27 @@ function newTransaction(transaction){
 
   reload(transactions);
 
-  clearFields();
+  clearFields(transaction.typeTransaction);
 
-  toggleModal();
+  document.getElementById('modalIncome').classList.remove('active')
+  document.getElementById('modalExpense').classList.remove('active')
 }
 
-function submitForm(event) {
+function submitForm(event, typeTransaction) {
+  console.log(typeTransaction);
   event.preventDefault();
-  const description = document.getElementById('description').value;
-  const amount = Number(document.getElementById('amount').value);
-  const date = document.getElementById('date').value;
+  const description = document.getElementById(`description${typeTransaction}`).value;
+  let amount = Number(document.getElementById(`amount${typeTransaction}`).value);
+  const date = document.getElementById(`date${typeTransaction}`).value;
+
+  typeTransaction === 'Expense' ? amount = -Math.abs(amount) : '';
+
+  console.log(amount);
 
   const values = {
     ...formatValues(amount, date),
-    description
+    description,
+    typeTransaction
   }
 
   newTransaction(values);
@@ -127,8 +140,6 @@ function formatCurrency(amountTransaction, typeTransaction) {
 
   return `${signalAmount} ${value}`;
 }
-
-
 
 function incomes(transactions) {
   let totalIncomes = 0;
@@ -181,3 +192,26 @@ function updateBalance(transactions) {
 }
 
 init();
+
+/* function mask(elemento) { 
+  var valor = elemento.value;
+
+  valor = valor + '';
+  valor = parseInt(valor.replace(/[\D]+/g, ''));
+  valor = valor + '';
+  valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+  if (valor.length > 6) {
+      valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+  }
+
+  elemento.value = valor;
+  if(valor == 'NaN') elemento.value = '';
+} */
+
+/* let elemento = document.getElementById('amountExpense')
+
+elemento.addEventListener('keyup',function() {
+  
+
+}) */
