@@ -75,12 +75,12 @@ header #logo span{
 
 .card{
   background: #fff;
+  color: var(--dark-blue);
+
   padding: 1.5rem 2rem;
   margin-bottom: 2rem;
 
   border-radius: 0.5rem;
-
-  color: var(--dark-blue);
 }
 
 .card h3{
@@ -95,7 +95,6 @@ header #logo span{
 .card p{
   font-size: 2rem;
   line-height: 3rem;
-
   margin-top: 1rem;
 }
 
@@ -124,19 +123,23 @@ header #logo span{
 
 .add-transactions{
   width: 100%;
-  display: grid;
   margin: 2rem auto;
+
+  display: grid;
   gap: 1rem;
   justify-content: center;
 }
 
 button.new{
   padding: 1rem 1.5rem;
+
   border: none;
+  border-radius: 0.5rem;
+
   font-size: 1rem;
   font-weight: 700;
-  border-radius: 0.5rem;
   color: #FFF;
+
   cursor: pointer;
   background: var(--dark-blue);
 }
@@ -155,8 +158,10 @@ button.new{
 
 #data-table th{
   background: #fff;
+
   font-weight: normal;
   text-align: left;
+  
   padding: 1rem 2rem;
 }
 
