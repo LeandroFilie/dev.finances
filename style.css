@@ -99,6 +99,11 @@ header #logo span{
   margin-top: 1rem;
 }
 
+.card img{
+  width: 24px;
+  height: 24px;
+}
+
 .card.total svg{
   stroke: var(--secondary-color);
 }
@@ -182,6 +187,11 @@ button.new{
   cursor: pointer;
 }
 
+td img{
+  width: 24px;
+  height: 24px;
+}
+
 td.description{
   color: var(--dark-blue);
 }
@@ -255,6 +265,11 @@ td.expense{
   display: flex;
 }
 
+.modal-header span img{
+  width: 24px;
+  height: 24px;
+}
+
 #form{
   padding: 1rem 2rem;
   max-width: 500px;
@@ -316,6 +331,11 @@ td.expense{
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+#form .input-group img{
+  width: 18px;
+  height: 18px;
 }
 
 #form .input-group input{

@@ -6,7 +6,6 @@ function toggleModal() {
   modal.classList.toggle('active');
 }
 
-
 function getTransactions(){
   return JSON.parse(localStorage.getItem("transactions")) || [] 
 }
