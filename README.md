@@ -1,30 +1,37 @@
-# dev.finances
+# dev.finances <img src="./assets/favicon.png" />
 
 <p align="center">
   <a href="#o-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#tecnologias">Tecnologias</a>
-</p>
-
-<p align="center">
-  <img src='.github/devices.png'>
+  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#behavior">Behavior</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#executando-o-projeto">Executar</a>
 </p>
 
 ## O Projeto
-dev.finance é uma aplicação web destinada a controle financeiro, onde é possível cadastrar e excluir transações e ver o saldo de entrada e saída.
+dev.finance é uma aplicação web destinada a controle financeiro, onde é possível cadastrar e excluir transações, ver o saldo de entradas e saídas e o saldo total final.
 
 ## Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - HTML
-  - HTML Semântico
 - CSS
-  - Flexbox
-  - Grid
 - JavaScript
-  - DOM
-  - LocalStorage
+
+## Behavior
+<img src='.github/devices.png'>
+
+## Executando o projeto
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/LeandroFilie/dev.finances.git
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd dev.finances
+```
 
 ---
 
 Feito com :heart: by [Leandro Filié](https://github.com/LeandroFilie)
+
