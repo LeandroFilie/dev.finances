@@ -30,8 +30,8 @@ $ git clone https://github.com/LeandroFilie/dev.finances.git
 # Acesse a pasta do projeto no seu terminal/cmd
 $ cd dev.finances
 ```
-
 Para acesso de forma online, [clique aqui](https://dev-finances-leandrofilie.vercel.app/)
+
 ---
 
 Feito com :heart: by [Leandro Filié](https://github.com/LeandroFilie)
